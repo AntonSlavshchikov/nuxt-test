@@ -1,5 +1,5 @@
 <template>
-   <NuxtLink :to="'/category/'+category.name" class="category__item">
+   <NuxtLink :to="'/category/'+category.id" class="category__item">
        <h4 class="cayegory__name">{{category.name}}</h4>
        <img class="category__img" src="https://via.placeholder.com/300" alt="">
    </NuxtLink>

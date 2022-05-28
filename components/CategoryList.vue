@@ -1,5 +1,5 @@
 <template>
-  <div class="category">
+  <div class="container">
       <h3 class="page__header">Выберите категорию</h3>
       <div class="category__list">
           <CategoryItem
@@ -24,9 +24,6 @@ export default {
 </script>
 
 <style scoped lang="scss">
-    .category{
-        padding: 0 40px;
-    }
     .category__list{
         display: flex;
         flex-wrap: wrap;

@@ -54,6 +54,10 @@ export default {
         
     }
 
+    .container{
+        padding: 0 40px;
+    }
+
     .page__header{
         padding: 10px 0;
     }
