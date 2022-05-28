@@ -19,133 +19,127 @@ export const state = () => ({
     ],
     products: [
         {
-            id: '1',
-            category: '1',
+            id: 1,
+            category: 1,
             name: 'iPhone X',
             description: 'Новая модель айфона',
             price: '70000'
           },
           {
-            id: '2',
-            category: '1',
+            id: 2,
+            category: 1,
             name: 'iPhone XR',
             description: 'Новая модель айфона',
             price: '100000'
           },
           {
-            id: '3',
-            category: '1',
+            id: 3,
+            category: 1,
             name: 'Samsung A50',
             description: 'Новая модель Samsung',
             price: '15000'
           },
           {
-            id: '4',
-            category: '1',
+            id: 4,
+            category: 1,
             name: 'Xiaomi MI10',
             description: 'Новая модель Xiaomi',
             price: '10000'
           },
           {
-            id: '5',
-            category: '2',
-            name: 'iPhone X',
-            description: 'Новая модель айфона',
+            id: 5,
+            category: 2,
+            name: 'MacBook',
+            description: 'Новая модель MacBook',
             price: '70000'
           },
           {
-            id: '6',
-            category: '2',
-            name: 'iPhone XR',
-            description: 'Новая модель айфона',
+            id: 6,
+            category: 2,
+            name: 'Aser laptop',
+            description: 'Новая модель Aser',
             price: '100000'
           },
           {
-            id: '7',
-            category: '2',
-            name: 'Samsung A50',
-            description: 'Новая модель Samsung',
+            id: 7,
+            category: 2,
+            name: 'Hp nout',
+            description: 'Новая модель Hp nout',
             price: '15000'
           },
           {
-            id: '8',
-            category: '2',
-            name: 'Xiaomi MI10',
-            description: 'Новая модель Xiaomi',
+            id: 8,
+            category: 2,
+            name: 'Lenovo book',
+            description: 'Новая модель Lenovo',
             price: '10000'
           },
           {
-            id: '9',
-            category: '3',
-            name: 'iPhone X',
-            description: 'Новая модель айфона',
+            id: 9,
+            category: 3,
+            name: 'Стиральная машинка',
+            description: 'Новая модель стиралки',
             price: '70000'
           },
           {
-            id: '10',
-            category: '3',
-            name: 'iPhone XR',
-            description: 'Новая модель айфона',
+            id: 10,
+            category: 3,
+            name: 'Миксер',
+            description: 'Новая модель миксера',
             price: '100000'
           },
           {
-            id: '11',
-            category: '3',
-            name: 'Samsung A50',
-            description: 'Новая модель Samsung',
+            id: 11,
+            category: 3,
+            name: 'Холодильник',
+            description: 'Новая модель Холодильника',
             price: '15000'
           },
           {
-            id: '12',
-            category: '3',
-            name: 'Xiaomi MI10',
-            description: 'Новая модель Xiaomi',
+            id: 12,
+            category: 3,
+            name: 'Микроволновая печь',
+            description: 'Новая модель Микроволновой печи',
             price: '10000'
           },
           {
-            id: '13',
-            category: '4',
-            name: 'iPhone X',
-            description: 'Новая модель айфона',
+            id: 13,
+            category: 4,
+            name: 'Супер комп',
+            description: 'Новая модель компа',
             price: '70000'
           },
           {
-            id: '14',
-            category: '4',
-            name: 'iPhone XR',
-            description: 'Новая модель айфона',
+            id: 14,
+            category: 4,
+            name: 'Ультра комп',
+            description: 'Новая модель компа',
             price: '100000'
           },
           {
-            id: '15',
-            category: '4',
-            name: 'Samsung A50',
-            description: 'Новая модель Samsung',
+            id: 15,
+            category: 4,
+            name: 'Самый топовый ПК',
+            description: 'Новая модель ПК',
             price: '15000'
           },
           {
-            id: '16',
-            category: '4',
-            name: 'Xiaomi MI10',
-            description: 'Новая модель Xiaomi',
+            id: 16,
+            category: 4,
+            name: 'ПК',
+            description: 'Новая модель ПК',
             price: '10000'
           },
     ],
 })
 
-// export const actions = {
-//     getCategoryName (state, {route}) {
-//         const name = state.categories;
-//         commit('SET_CATEGORIES', name);
-//     }
-// }
+export const getters = {
+  getByIdCategories: (state) => (id) => {
+    console.log(state.categories.find(category => category.id === id))
+    return state.categories.find(category => category.id === Number(id));
+  },
 
-// export const mutations = {
-//     SET_CATEGORIES (state, categories) {
-//         state.categories = categories;
-//     },
-
-//     SET_PRODUCTS (state, products) {
-//         state.products = products;
-//     }
-// }
+  getSortedProducts: (state) => (id) => {
+    return state.products.filter(product => product.category === Number(id));
+  }
+}

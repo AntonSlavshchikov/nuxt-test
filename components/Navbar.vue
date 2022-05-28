@@ -4,6 +4,7 @@
         <div class="nav__menu">
             <NuxtLink class="nav__link" to="/">Главная</NuxtLink>
             <NuxtLink class="nav__link" to="/about">О нас</NuxtLink>
+            <NuxtLink class="nav__link" to="/about"><img src="@/assets/ico/cors.png" alt=""></NuxtLink>
         </div>
     </nav>
 </template>
