@@ -4,14 +4,14 @@
         <div class="nav__menu">
             <NuxtLink class="nav__link" to="/">Главная</NuxtLink>
             <NuxtLink class="nav__link" to="/about">О нас</NuxtLink>
-            <NuxtLink class="nav__link" to="/about"><img src="@/assets/ico/cors.png" alt=""></NuxtLink>
+            <a class="nav__link" @click="$modal.show('customer-cart')"><img src="@/assets/ico/cors.png" alt=""></a>
         </div>
     </nav>
 </template>
 
 <script>
 export default {
-    name: 'Navbar'
+    name: 'Navbar',
 }
 </script>
 

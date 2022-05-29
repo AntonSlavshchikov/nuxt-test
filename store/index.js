@@ -131,11 +131,11 @@ export const state = () => ({
             price: '10000'
           },
     ],
+    basket:[]
 })
 
 export const getters = {
   getByIdCategories: (state) => (id) => {
-    console.log(state.categories.find(category => category.id === id))
     return state.categories.find(category => category.id === Number(id));
   },
 
