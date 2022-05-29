@@ -11,9 +11,12 @@
     :reset="true"
     classes="v--modal-customer-cart"
  >
-    <!-- <div class="busket">
-        <div class="busket__content"></div>
-    </div> -->
+    <div v-if="$store.state.basket.length > 0">
+
+    </div>
+    <div v-else class="backet__empty">
+      <h3 class="backet__empty__text">Корзина пуста!</h3>
+    </div>
   </modal>
 </template>
 
@@ -41,5 +44,22 @@ name: 'Busket',
   min-height: 50px;
   min-width: 300px;
   padding: 20px;
+}
+
+.backet__empty{
+  min-height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.backet__empty__text{
+  margin: auto 0;
+
+  color: rgba(0, 0, 0, 0.5);
+  font-size: 30px;
+  font-weight: 700;
+
 }
 </style>
