@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import {mapState, mapGetters} from "vuex";
+import {mapState, mapGetters, mapActions} from "vuex";
 
 export default {
   computed: {

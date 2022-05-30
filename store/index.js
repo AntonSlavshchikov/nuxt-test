@@ -131,8 +131,29 @@ export const state = () => ({
             price: '10000'
           },
     ],
-    basket:[]
+    busket:[]
 })
+
+export const mutations = {
+  setBusket (state, busket){
+    state.busket = busket;
+  }
+}
+
+export const actions = {
+  fetchBusket ({state, commit}, item) {
+    const count = state.busket.filter(f => f.item.id === item.id);
+    if(count.length > 0){
+      const index = state.busket.findIndex(el => el.item.id === item.id)
+      state.busket[index].col === state.busket[index].col + 1;
+      console.log(state.busket[index].col);
+      // commit('setBusket', state.busket);
+    }
+    else{
+       commit('setBusket', [...state.busket, {item, col: 1}]);
+    }
+  }
+}
 
 export const getters = {
   getByIdCategories: (state) => (id) => {
@@ -141,5 +162,9 @@ export const getters = {
 
   getSortedProducts: (state) => (id) => {
     return state.products.filter(product => product.category === Number(id));
+  },
+
+  getCountBusket (state) {
+    return state.busket.length;
   }
 }

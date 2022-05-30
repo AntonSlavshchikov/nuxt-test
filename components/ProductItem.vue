@@ -4,7 +4,7 @@
     <img class="category__img" src="https://via.placeholder.com/250" alt="">
     <div class="product__menu">
         <p class="product_price">{{product.price}} руб.</p>
-        <button class="btn">Купить</button>
+        <button class="btn" @click.prevent="setBucket(product)">Купить</button>
     </div>
   </div>
 </template>
@@ -17,7 +17,13 @@ export default {
             type: Object,
             required: true
         }
-    }
+    },
+    methods: {
+        setBucket (item){
+            this.$store.dispatch('fetchBusket', item);
+            console.log(this.$store.state.busket);
+        }
+    },
 }
 </script>
 

@@ -5,13 +5,25 @@
             <NuxtLink class="nav__link" to="/">Главная</NuxtLink>
             <NuxtLink class="nav__link" to="/about">О нас</NuxtLink>
             <a class="nav__link" @click="$modal.show('customer-cart')"><img src="@/assets/ico/cors.png" alt=""></a>
+            <div class="counter__block" v-if="getCount">
+                <p class="counter">{{getCount}}</p>
+            </div>
         </div>
     </nav>
 </template>
 
 <script>
+import {mapGetters} from "vuex";
 export default {
     name: 'Navbar',
+     computed: {
+    ...mapGetters([
+      'getCountBusket',
+    ]),
+    getCount() {
+      return this.getCountBusket;
+    },
+  }
 }
 </script>
 
@@ -55,5 +67,22 @@ export default {
         &:last-child{
             margin-right: 0;
         }
+    }
+
+    .counter__block{
+        height: 16px;
+        width: 16px;
+        background: #fff;
+        border-radius: 50%;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .counter{
+        color: #333;
+        font-size: 14px;
+        font-weight: 900;
     }
 </style>

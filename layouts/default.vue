@@ -4,7 +4,7 @@
             <Navbar/>
             <main class="main">
                 <Nuxt />
-                <Basket/>
+                <Busket/>
             </main>
             <footer class="footer">It`s footer</footer>
         </div>
