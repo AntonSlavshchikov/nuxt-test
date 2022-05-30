@@ -137,17 +137,22 @@ export const state = () => ({
 export const mutations = {
   setBusket (state, busket){
     state.busket = busket;
-  }
+  },
 }
 
 export const actions = {
   fetchBusket ({state, commit}, item) {
+    console.log(state.busket)
     const count = state.busket.filter(f => f.item.id === item.id);
     if(count.length > 0){
       const index = state.busket.findIndex(el => el.item.id === item.id)
-      state.busket[index].col === state.busket[index].col + 1;
-      console.log(state.busket[index].col);
-      // commit('setBusket', state.busket);
+      const newBucket = state.busket.map((el, elIndex) => {
+        if(elIndex === index){
+          return {...el, col:el.col +1 }  
+        }
+        return el;
+      })
+      commit('setBusket', newBucket);
     }
     else{
        commit('setBusket', [...state.busket, {item, col: 1}]);
