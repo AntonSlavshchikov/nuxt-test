@@ -4,7 +4,9 @@
 
 <script>
 export default {
-
+  transition:{
+    name:'page'
+  }
 }
 </script>
 

@@ -10,6 +10,9 @@
 <script>
 export default {
   name: 'IndexPage',
+  transition:{
+    name:'page'
+  }
 }
 </script>
 
