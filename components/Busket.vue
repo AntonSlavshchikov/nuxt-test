@@ -16,15 +16,16 @@
     </div> -->
      <div class="busket" v-if="$store.state.busket.length > 0">
        <div class="busket__list">
+         <h3>Общая стоимость: {{$store.state.total}} руб.</h3>
          <div class="busket__item" v-for="product in $store.state.busket" :key="product.id">
            <img src="https://via.placeholder.com/150" alt="" class="busket__img">
            <div class="busket__content">
-             <h3>{{product.item.name}}</h3>
-             <p>{{product.item.price}} руб.</p>
-             <p>{{product.item.description}}</p>
+             <p><strong>Наименование:</strong> {{product.item.name}}</p>
+             <p><strong>Цена:</strong> {{product.item.price*product.col}} руб.</p>
+             <p><strong>Описание:</strong> {{product.item.description}}</p>
            </div>
-           <h3>Количество: {{product.col}}</h3>
-           <button class="busket__btn">Delete</button>
+           <h3>Количество:  <input type="number" :value="product.col" :id="product.item.id" @input="updateRow" class="busket__input"></h3>
+           <button class="busket__btn" @click="removeItem(product.item.id)">Удалить</button>
          </div>
        </div>
     </div>
@@ -38,6 +39,16 @@
 
 export default {
 name: 'Busket',
+methods:{
+  updateRow (e) {
+    this.$store.commit('updateColBusket', [e.target.id, e.target.value]);
+    this.$store.commit('setTotal');
+  },
+  removeItem (id) {
+    this.$store.commit('removeRowBusket', id);
+    this.$store.commit('setTotal');
+  },
+},
 }
 </script>
 
@@ -94,5 +105,10 @@ name: 'Busket',
   font-size: 30px;
   font-weight: 700;
 
+}
+
+.busket__input{
+  width: 50px;
+  padding: 3px;
 }
 </style>

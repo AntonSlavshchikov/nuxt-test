@@ -6,7 +6,7 @@
                 <Nuxt />
                 <Busket/>
             </main>
-            <footer class="footer">It`s footer</footer>
+            <footer class="footer">Nuxt-test, online-shop</footer>
         </div>
   </div>
 </template>
@@ -66,9 +66,13 @@ export default {
     .footer{
         flex: 0 0 auto;
         
-        height: 100px;
+        padding: 20px;
         width: 100%;
 
         background: #393E46;
+        color:darken($color: #eee, $amount: 30);
+        font-size: 16px;
+        font-weight: 700;
+        text-align: center;
     }
 </style>

@@ -20,7 +20,7 @@ export default {
   },
   methods: {
     setBucket(item) {
-      this.$store.dispatch('fetchBusket', item)
+      this.$store.dispatch('fetchBusket', item);
     },
   },
 }

@@ -131,24 +131,45 @@ export const state = () => ({
             price: '10000'
           },
     ],
-    busket:[]
+    busket:[],
+    total:0,
 })
 
 export const mutations = {
   setBusket (state, busket){
     state.busket = busket;
   },
+
+  updateColBusket (state, id) {
+    const newBusket = state.busket.map((el) => {
+      if(el.item.id === Number(id[0])){
+        return {...el, col:id[1] }
+      }
+      return el;
+    });
+    state.busket = newBusket;
+  },
+
+  removeRowBusket (state, id) {
+    state.busket = state.busket.filter(el => el.item.id !== id);
+  },
+  setTotal (state){
+    let totalPrice = 0;
+    state.busket.map((i) => { 
+      totalPrice += Number(i.item.price)*Number(i.col);
+    });
+    state.total = totalPrice;
+  }
 }
 
 export const actions = {
   fetchBusket ({state, commit}, item) {
-    console.log(state.busket)
     const count = state.busket.filter(f => f.item.id === item.id);
     if(count.length > 0){
       const index = state.busket.findIndex(el => el.item.id === item.id)
       const newBucket = state.busket.map((el, elIndex) => {
         if(elIndex === index){
-          return {...el, col:el.col +1 }  
+          return {...el, col:Number(el.col) +1 }  
         }
         return el;
       })
@@ -157,7 +178,8 @@ export const actions = {
     else{
        commit('setBusket', [...state.busket, {item, col: 1}]);
     }
-  }
+    commit('setTotal');
+  },
 }
 
 export const getters = {
