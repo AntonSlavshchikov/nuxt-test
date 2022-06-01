@@ -1,7 +1,7 @@
 <template>
   <div class="product__item">
     <h4 class="product__name">{{ product.name }}</h4>
-    <img class="category__img" src="https://via.placeholder.com/250" alt="" />
+    <img class="category__img" v-lazy="product.img" alt="" />
     <div class="product__menu">
       <p class="product_price">{{ product.price }} руб.</p>
       <button class="btn" @click.prevent="setBucket(product)">Купить</button>
@@ -59,5 +59,10 @@ export default {
   &:hover {
     background: lighten($color: #393e46, $amount: 10);
   }
+}
+
+.category__img{
+  height: 250px;
+  width: 250px;
 }
 </style>

@@ -3,8 +3,8 @@
         <div class="wrapper">
             <Navbar/>
             <main class="main">
-                <Nuxt />
                 <Busket/>
+                <Nuxt />
             </main>
             <footer class="footer">Nuxt-test, online-shop</footer>
         </div>

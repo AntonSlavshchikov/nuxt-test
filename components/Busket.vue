@@ -24,7 +24,7 @@
              <p><strong>Цена:</strong> {{product.item.price*product.col}} руб.</p>
              <p><strong>Описание:</strong> {{product.item.description}}</p>
            </div>
-           <h3>Количество:  <input type="number" :value="product.col" :id="product.item.id" @input="updateRow" class="busket__input"></h3>
+           <h3>Количество:  <input type="number" min="1" :value="product.col" :id="product.item.id" @input="updateRow" class="busket__input"></h3>
            <button class="busket__btn" @click="removeItem(product.item.id)">Удалить</button>
          </div>
        </div>

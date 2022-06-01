@@ -1,7 +1,7 @@
 <template>
    <NuxtLink :to="'/category/'+category.id" class="category__item">
        <h4 class="cayegory__name">{{category.name}}</h4>
-       <img class="category__img" src="https://via.placeholder.com/300" alt="">
+       <img class="category__img" v-lazy="category" alt="">
    </NuxtLink>
 </template>
 
@@ -38,5 +38,8 @@ export default {
 
     .category__img{
         margin-top: 10px;
+
+        height: 300px;
+        width: 300px;
     }
 </style>

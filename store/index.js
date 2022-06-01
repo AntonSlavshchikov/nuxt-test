@@ -153,6 +153,7 @@ export const mutations = {
   removeRowBusket (state, id) {
     state.busket = state.busket.filter(el => el.item.id !== id);
   },
+  
   setTotal (state){
     let totalPrice = 0;
     state.busket.map((i) => { 
