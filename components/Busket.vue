@@ -53,6 +53,20 @@ methods:{
 </script>
 
 <style scoped lang="scss">
+::-webkit-scrollbar{
+  width: 4px;
+}
+
+// ::-webkit-scrollbar-track{
+//     background: #f0f0f0;
+// }
+
+::-webkit-scrollbar-thumb{
+    background-color: #b4b4b4;
+    border-radius: 20px;
+    // border: 3px solid #f0f0f0;
+}
+
 .busket {
  height: 100%;
  padding: 40px;
