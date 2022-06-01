@@ -41,8 +41,15 @@ export default {
 name: 'Busket',
 methods:{
   updateRow (e) {
-    this.$store.commit('updateColBusket', [e.target.id, e.target.value]);
-    this.$store.commit('setTotal');
+    if(e.target.value > "0"){
+      this.$store.commit('updateColBusket', [e.target.id, e.target.value]);
+      this.$store.commit('setTotal');
+    }
+    else{
+      e.target.value = 1;
+      this.$store.commit('updateColBusket', [e.target.id, e.target.value]);
+      this.$store.commit('setTotal');
+    }
   },
   removeItem (id) {
     this.$store.commit('removeRowBusket', id);
