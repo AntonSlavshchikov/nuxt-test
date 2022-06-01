@@ -2,7 +2,7 @@
   <div>
     <div class="row__info">Главная</div>
     <CategoryList
-      :categories='$store.state.categories'
+      :categories='categories'
     /> 
   </div>
 </template>
@@ -12,6 +12,17 @@ export default {
   name: 'IndexPage',
   transition:{
     name:'page'
+  },
+  computed : {
+    categories() {
+      return this.$store.state.categories;
+    }
+  },
+ mounted() {
+      this.$nextTick(() => {
+          this.$nuxt.$loading.start()
+          setTimeout(() => this.$nuxt.$loading.finish(), 1000)
+      })
   }
 }
 </script>
