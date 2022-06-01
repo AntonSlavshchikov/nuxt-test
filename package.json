@@ -14,6 +14,7 @@
   "dependencies": {
     "@nuxtjs/axios": "^5.13.6",
     "core-js": "^3.19.3",
+    "lazy-load": "^0.0.2",
     "nuxt": "^2.15.8",
     "vue": "^2.6.14",
     "vue-js-modal": "^2.0.1",

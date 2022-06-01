@@ -4,7 +4,7 @@
     <img class="category__img" v-lazy="product.img" alt="" />
     <div class="product__menu">
       <p class="product_price">{{ product.price }} руб.</p>
-      <button class="btn" @click.prevent="setBucket(product)">Купить</button>
+      <button class="btn" @click.prevent="setBacket(product)">Купить</button>
     </div>
   </div>
 </template>
@@ -19,8 +19,8 @@ export default {
     },
   },
   methods: {
-    setBucket(item) {
-      this.$store.dispatch('fetchBusket', item);
+    setBacket(item) {
+      this.$store.dispatch('fetchBasket', item);
     },
   },
 }

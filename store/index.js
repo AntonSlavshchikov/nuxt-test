@@ -131,32 +131,32 @@ export const state = () => ({
             price: '10000'
           },
     ],
-    busket:[],
+    basket:[],
     total:0,
 })
 
 export const mutations = {
-  setBusket (state, busket){
-    state.busket = busket;
+  setBasket (state, basket){
+    state.basket = basket;
   },
 
-  updateColBusket (state, id) {
-    const newBusket = state.busket.map((el) => {
+  updateColBasket (state, id) {
+    const newBasket = state.basket.map((el) => {
       if(el.item.id === Number(id[0])){
         return {...el, col:id[1] }
       }
       return el;
     });
-    state.busket = newBusket;
+    state.basket = newBasket;
   },
 
-  removeRowBusket (state, id) {
-    state.busket = state.busket.filter(el => el.item.id !== id);
+  removeRowBasket (state, id) {
+    state.basket = state.basket.filter(el => el.item.id !== id);
   },
   
   setTotal (state){
     let totalPrice = 0;
-    state.busket.map((i) => { 
+    state.basket.map((i) => { 
       totalPrice += Number(i.item.price)*Number(i.col);
     });
     state.total = totalPrice;
@@ -164,20 +164,20 @@ export const mutations = {
 }
 
 export const actions = {
-  fetchBusket ({state, commit}, item) {
-    const count = state.busket.filter(f => f.item.id === item.id);
+  fetchBasket ({state, commit}, item) {
+    const count = state.basket.filter(f => f.item.id === item.id);
     if(count.length > 0){
-      const index = state.busket.findIndex(el => el.item.id === item.id)
-      const newBucket = state.busket.map((el, elIndex) => {
+      const index = state.basket.findIndex(el => el.item.id === item.id)
+      const newBacket = state.basket.map((el, elIndex) => {
         if(elIndex === index){
           return {...el, col:Number(el.col) +1 }  
         }
         return el;
       })
-      commit('setBusket', newBucket);
+      commit('setBasket', newBacket);
     }
     else{
-       commit('setBusket', [...state.busket, {item, col: 1}]);
+       commit('setBasket', [...state.basket, {item, col: 1}]);
     }
     commit('setTotal');
   },
@@ -192,7 +192,7 @@ export const getters = {
     return state.products.filter(product => product.category === Number(id));
   },
 
-  getCountBusket (state) {
-    return state.busket.length;
+  getCountBasket (state) {
+    return state.basket.length;
   }
 }

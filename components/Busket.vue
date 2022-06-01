@@ -14,18 +14,18 @@
     <!-- <div v-if="$store.state.basket.length > 0">
 
     </div> -->
-     <div class="busket" v-if="$store.state.busket.length > 0">
-       <div class="busket__list">
+     <div class="basket" v-if="$store.state.basket.length > 0">
+       <div class="basket__list">
          <h3>Общая стоимость: {{$store.state.total}} руб.</h3>
-         <div class="busket__item" v-for="product in $store.state.busket" :key="product.id">
-           <img src="https://via.placeholder.com/150" alt="" class="busket__img">
-           <div class="busket__content">
+         <div class="basket__item" v-for="product in $store.state.basket" :key="product.id">
+           <img src="https://via.placeholder.com/150" alt="" class="basket__img">
+           <div class="basket__content">
              <p><strong>Наименование:</strong> {{product.item.name}}</p>
              <p><strong>Цена:</strong> {{product.item.price*product.col}} руб.</p>
              <p><strong>Описание:</strong> {{product.item.description}}</p>
            </div>
            <h3>Количество:  <input type="number" min="1" :value="product.col" :id="product.item.id" @input="updateRow" class="busket__input"></h3>
-           <button class="busket__btn" @click="removeItem(product.item.id)">Удалить</button>
+           <button class="basket__btn" @click="removeItem(product.item.id)">Удалить</button>
          </div>
        </div>
     </div>
@@ -38,21 +38,21 @@
 <script>
 
 export default {
-name: 'Busket',
+name: 'Basket',
 methods:{
   updateRow (e) {
     if(e.target.value > "0"){
-      this.$store.commit('updateColBusket', [e.target.id, e.target.value]);
+      this.$store.commit('updateColBasket', [e.target.id, e.target.value]);
       this.$store.commit('setTotal');
     }
     else{
       e.target.value = 1;
-      this.$store.commit('updateColBusket', [e.target.id, e.target.value]);
+      this.$store.commit('updateColBasket', [e.target.id, e.target.value]);
       this.$store.commit('setTotal');
     }
   },
   removeItem (id) {
-    this.$store.commit('removeRowBusket', id);
+    this.$store.commit('removeRowBasket', id);
     this.$store.commit('setTotal');
   },
 },
@@ -74,14 +74,14 @@ methods:{
     // border: 3px solid #f0f0f0;
 }
 
-.busket {
+.basket {
  height: 100%;
  padding: 40px;
  overflow-y: scroll;
 }
 
 
-.busket__item{
+.basket__item{
   display: flex;
   justify-content: space-between;
   align-items: top;
@@ -91,7 +91,7 @@ methods:{
   box-shadow: 2px 2px 4px gray;
 }
 
-.busket__btn{
+.basket__btn{
   height: 30px;
   border: none;
   background: #393E46;
@@ -128,7 +128,7 @@ methods:{
 
 }
 
-.busket__input{
+.basket__input{
   width: 50px;
   padding: 3px;
 }

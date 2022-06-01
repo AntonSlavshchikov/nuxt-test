@@ -18,10 +18,10 @@ export default {
     name: 'Navbar',
      computed: {
     ...mapGetters([
-      'getCountBusket',
+      'getCountBasket',
     ]),
     getCount() {
-      return this.getCountBusket;
+      return this.getCountBasket;
     },
   }
 }
