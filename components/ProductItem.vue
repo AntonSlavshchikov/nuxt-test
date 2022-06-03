@@ -1,7 +1,9 @@
 <template>
   <div class="product__item">
-    <h4 class="product__name">{{ product.name }}</h4>
-    <img class="category__img" v-lazy="product.img" alt="" />
+    <NuxtLink class="product__link" :to="'/product/'+product.id">
+      <h4 class="product__name">{{ product.name }}</h4>
+      <img class="category__img" v-lazy="product.img" alt="" />
+    </NuxtLink>
     <div class="product__menu">
       <p class="product_price">{{ product.price }} руб.</p>
       <button class="btn" @click.prevent="setBacket(product)">Купить</button>
@@ -42,6 +44,14 @@ export default {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.product__name{
+  color: #393e46;
+}
+
+.product__link{
+  text-decoration: none;
 }
 
 .btn {

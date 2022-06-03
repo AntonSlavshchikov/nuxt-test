@@ -194,5 +194,9 @@ export const getters = {
 
   getCountBasket (state) {
     return state.basket.length;
+  },
+
+  getByProductId: (state) => (id) => {
+    return state.products.find(prod => prod.id === Number(id));
   }
 }
