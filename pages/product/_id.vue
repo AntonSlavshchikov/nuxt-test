@@ -1,9 +1,10 @@
 <template>
   <div>
-      <!-- <div class="row__info">
+      <div class="row__info">
           <NuxtLink class="row__info-link" to="/">Главная</NuxtLink>
-         /{{getNameCateg}}
-       </div> -->
+         /<NuxtLink class="row__info-link" :to="'/category/'+getProdId.category">{{getName}}</NuxtLink>
+         /{{getProdId.name}}
+       </div>
        <div class="container">
            <h1>{{getProdId.name}}</h1>
            <div class="prod__id">
@@ -23,16 +24,15 @@ export default {
     computed: {
         ...mapGetters([
             'getByProductId',
-            'getByIdCategories'
+            'getCategoryByName'
         ]),
         getProdId() {
             return this.getByProductId(this.$route.params.id);
         },
 
-        // getNameCateg() {
-        //     console.log(this.$route.params)
-        //     return this.getByIdCategories(this.$route.params.category);
-        // }
+        getName() {
+            return this.getCategoryByName(this.$route.params.id);
+        }
     }
 }
 </script>

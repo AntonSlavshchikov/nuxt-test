@@ -188,6 +188,12 @@ export const getters = {
     return state.categories.find(category => category.id === Number(id));
   },
 
+  getCategoryByName: (state) => (id) => {
+    const prod = state.products.find(product => product.id === Number(id));
+    const categ = state.categories.find(cat => cat.id === Number(prod.category));
+    return categ.name;
+  },
+
   getSortedProducts: (state) => (id) => {
     return state.products.filter(product => product.category === Number(id));
   },
