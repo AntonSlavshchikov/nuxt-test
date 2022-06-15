@@ -15,7 +15,7 @@
     <div class="ready__modal">
         <div class="ready__modal__content">
             <h1 class="ready__modal__text">Заказ оформлен!</h1>
-            <NuxtLink to='/' class="ready__btn">OK</NuxtLink>
+            <NuxtLink to='/' class="ready__btn" v-on:click.native="clearBasket">OK</NuxtLink>
         </div>
        
     </div>
@@ -23,8 +23,18 @@
 </template>
 
 <script>
+    import { mapMutations } from 'vuex';
     export default {
-        name: 'ReadyModal'
+        name: 'ReadyModal',
+        methods : {
+            ...mapMutations({
+                setBasket:'setBasket'
+            }),
+
+            clearBasket() {
+                this.setBasket([])
+            }
+        }
     }
 </script>
 

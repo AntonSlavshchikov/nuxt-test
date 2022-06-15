@@ -16,13 +16,13 @@
 
             <h4>Общая стоимость: {{$store.state.total}} руб.</h4>
 
-            <form class="order__form" action="">
+            <form class="order__form" @submit.prevent="$modal.show('ready-modal')">
                 <h3>Заполните данные</h3>
-                <input class="order__input" placeholder="ФИО" type="text">
-                <input class="order__input" placeholder="Серия и номер паспорта" type="text">
-                <input class="order__input" placeholder="Адрес доставки (город, улица, дом)" type="text">
-                <input class="order__input" placeholder="Номер телефона" type="text">
-                <button class="order__btn" @click.prevent="$modal.show('ready-modal')">Оформить</button>
+                <input class="order__input" placeholder="ФИО" type="text" required>
+                <input class="order__input" placeholder="Серия и номер паспорта" type="text" required>
+                <input class="order__input" placeholder="Адрес доставки (город, улица, дом)" type="text" required>
+                <input class="order__input" placeholder="Номер телефона" type="text" required>
+                <button class="order__btn" type="submit">Оформить</button>
             </form>
         </div>
     </div>
