@@ -4,6 +4,7 @@
             <Navbar/>
             <main class="main">
                 <Basket/>
+                <Auth/>
                 <Nuxt />
             </main>
             <footer class="footer">Nuxt-test, online-shop</footer>

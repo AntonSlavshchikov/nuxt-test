@@ -27,6 +27,8 @@
            <h3>Количество:  <input type="number" min="1" :value="product.col" :id="product.item.id" @input="updateRow" class="busket__input"></h3>
            <button class="basket__btn" @click="removeItem(product.item.id)">Удалить</button>
          </div>
+         <button class="basket__btn" v-if="$store.state.isAuth">Оформить заказ</button>
+         <p v-else>Войдите чтобы оформить заказ: <button class="basket__btn" @click="$modal.show('auth-modal')">Войти</button></p>
        </div>
     </div>
     <div v-else class="backet__empty">

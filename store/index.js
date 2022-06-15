@@ -133,11 +133,16 @@ export const state = () => ({
     ],
     basket:[],
     total:0,
+    isAuth: false,
 })
 
 export const mutations = {
   setBasket (state, basket){
     state.basket = basket;
+  },
+
+  authState (state, isAuth){
+    state.isAuth = isAuth;
   },
 
   updateColBasket (state, id) {

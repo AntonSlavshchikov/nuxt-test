@@ -8,14 +8,24 @@
             <div class="counter__block" v-if="getCount">
                 <p class="counter">{{getCount}}</p>
             </div>
+            <a class="nav__link nav__link-login" @click="$modal.show('auth-modal')" v-if="!$store.state.isAuth">Войти</a>
+            <a class="nav__link nav__link-login" @click="logout" v-else>Добро пожаловать, ГОСТЬ</a>
         </div>
     </nav>
 </template>
 
 <script>
-import {mapGetters} from "vuex";
+import {mapGetters, mapMutations} from "vuex";
 export default {
     name: 'Navbar',
+    methods: {
+        ...mapMutations({
+            authState: 'authState'
+        }),
+        logout(){
+            this.authState(false);
+        }
+    },
      computed: {
     ...mapGetters([
       'getCountBasket',
@@ -53,6 +63,7 @@ export default {
 
     .nav__menu{
         display: flex;
+        align-items: center;
     }
 
     .nav__link{
@@ -69,6 +80,18 @@ export default {
         }
     }
 
+    .nav__link-login{
+        border: #fff 1px solid;
+        border-radius: 5px;
+        padding: 5px;
+        transition: all .2s linear;
+
+        &:hover{
+            background: #fff;
+            color: #222831;
+        }
+    }
+
     .counter__block{
         height: 16px;
         width: 16px;
@@ -78,6 +101,8 @@ export default {
         display: flex;
         justify-content: center;
         align-items: center;
+
+        margin-right: 15px;
     }
 
     .counter{
