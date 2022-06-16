@@ -8,7 +8,7 @@
                 <div class="order__item" v-for="product in $store.state.basket" :key="product.item.id">
                     <img src="https://via.placeholder.com/80" alt="" class="order__img">
                     <p class="order__text">{{product.item.name}}</p>
-                    <p class="order__text">{{product.item.price}}</p>
+                    <p class="order__text">{{product.item.price}} руб.</p>
                     <p class="order__text">{{product.item.name}}</p>
                     <p class="order__text">x{{product.col}}</p>
                 </div>
@@ -22,14 +22,16 @@
                 <input class="order__input" placeholder="Серия и номер паспорта" type="text" required>
                 <input class="order__input" placeholder="Адрес доставки (город, улица, дом)" type="text" required>
                 <input class="order__input" placeholder="Номер телефона" type="text" required>
-                <button class="order__btn" type="submit">Оформить</button>
+                <MyButton type="submit">Оформить</MyButton>
             </form>
         </div>
     </div>
 </template>
 
 <script>
+    import MyButton from '~/components/UI/MyButton.vue'
     export default {
+        components: { MyButton },
         name: 'order',
         mounted() {
             this.$modal.hide('customer-cart')
@@ -77,7 +79,7 @@
         background: #fff;
         padding: 30px;
         width: 50%;
-        margin-top: 20px;
+        margin: 20px 0;
 
         border-radius: 20px;
 
@@ -97,27 +99,6 @@
         margin-bottom: 8px;
 
         width: 100%;
-    }
-
-    .order__btn{
-        height: 30px;
-        border: none;
-        background: #393E46;
-        color: #fff;
-        padding: 8px;
-        font-size: 16px;
-        font-weight: 700;
-        text-transform: uppercase;
-        cursor: pointer;
-        border-radius: 5px;
-
-        text-decoration: none;
-
-        transition: all .2s linear;
-
-        &:hover{
-            background: lighten($color: #393E46, $amount: 10);
-        }
     }
 
 </style>

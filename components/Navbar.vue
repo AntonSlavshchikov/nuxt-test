@@ -1,6 +1,6 @@
 <template>
     <nav class="navbar">
-        <div class="nav__logo">NuxtStore</div>
+        <NuxtLink to="/" class="nav__logo">NuxtStore</NuxtLink>
         <div class="nav__menu">
             <NuxtLink class="nav__link" to="/">Главная</NuxtLink>
             <NuxtLink class="nav__link" to="/about">О нас</NuxtLink>
@@ -57,8 +57,9 @@ export default {
         font-size: 28px;
         font-weight: 900;
         font-style: italic;
-
         color: #EEEEEE;
+
+        text-decoration: none;
     }
 
     .nav__menu{

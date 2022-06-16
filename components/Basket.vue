@@ -25,10 +25,10 @@
              <p><strong>Описание:</strong> {{product.item.description}}</p>
            </div>
            <h3>Количество:  <input type="number" min="1" :value="product.col" :id="product.item.id" @input="updateRow" class="busket__input"></h3>
-           <button class="basket__btn" @click="removeItem(product.item.id)">Удалить</button>
+           <MyButton @click.native="removeItem(product.item.id)">Удалить</MyButton>
          </div>
-         <NuxtLink to='/order' class="basket__btn" v-if="$store.state.isAuth">Оформить заказ</NuxtLink>
-         <p v-else>Войдите чтобы оформить заказ: <button class="basket__btn" @click="$modal.show('auth-modal')" to='/order'>Войти</button></p>
+         <MyButton @click.native="$router.push('/order')" v-if="$store.state.isAuth">Оформить заказ</MyButton>
+         <p v-else>Войдите чтобы оформить заказ: <MyButton @click.native="$modal.show('auth-modal')" to='/order'>Войти</MyButton></p>
        </div>
     </div>
     <div v-else class="backet__empty">
@@ -38,8 +38,9 @@
 </template>
 
 <script>
-
+import MyButton from '~/components/UI/MyButton.vue'
 export default {
+components: { MyButton },
 name: 'Basket',
 methods:{
   updateRow (e) {

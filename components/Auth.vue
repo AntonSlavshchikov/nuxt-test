@@ -16,7 +16,7 @@
         <div class="auth">
             <input type="text" class="auth__input" placeholder="Логин" v-model="login">
             <input type="password" class="auth__input" placeholder="Пароль" v-model="password">
-            <button class="auth__btn" @click="setAuth" :disabled='isDisabled'>Войти</button>
+            <MyButton @click.native="setAuth" :disabled='isDisabled'>Войти</MyButton>
         </div>
     </div>
   </modal>
@@ -24,8 +24,10 @@
 
 <script>
     import {mapMutations} from "vuex";
+    import MyButton from '@/components/UI/MyButton.vue';
 
     export default {
+        components: {MyButton},
         name: 'Auth',
         data () {
             return {

@@ -6,13 +6,16 @@
     </NuxtLink>
     <div class="product__menu">
       <p class="product_price">{{ product.price }} руб.</p>
-      <button class="btn" @click.prevent="setBacket(product)">Купить</button>
+      <MyButton class="btn" @click.prevent="setBacket(product)">Купить</MyButton>
     </div>
   </div>
 </template>
 
 <script>
+import MyButton from '@/components/UI/MyButton.vue';
+
 export default {
+  comments: {MyButton},
   name: 'ProductItem',
   props: {
     product: {
