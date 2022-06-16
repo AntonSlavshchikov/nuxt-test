@@ -6,7 +6,7 @@
     </NuxtLink>
     <div class="product__menu">
       <p class="product_price">{{ product.price }} руб.</p>
-      <MyButton class="btn" @click.prevent="setBacket(product)">Купить</MyButton>
+      <MyButton @click.prevent.native="setBacket(product)">Купить</MyButton>
     </div>
   </div>
 </template>
@@ -15,7 +15,7 @@
 import MyButton from '@/components/UI/MyButton.vue';
 
 export default {
-  comments: {MyButton},
+  components: {MyButton},
   name: 'ProductItem',
   props: {
     product: {
@@ -55,23 +55,6 @@ export default {
 
 .product__link{
   text-decoration: none;
-}
-
-.btn {
-  background: #393e46;
-  border: none;
-  padding: 8px;
-
-  color: #eee;
-  text-transform: uppercase;
-  border-radius: 5px;
-  cursor: pointer;
-
-  transition: all 0.2s linear;
-
-  &:hover {
-    background: lighten($color: #393e46, $amount: 10);
-  }
 }
 
 .category__img{

@@ -81,24 +81,4 @@
 
         margin-bottom: 15px;
     }
-
-    .auth__btn{
-        display: block;
-        background: #393e46;
-        border: none;
-        padding: 8px;
-
-        color: #eee;
-        text-transform: uppercase;
-        border-radius: 5px;
-        cursor: pointer;
-
-        margin: 0 auto;
-
-        transition: all 0.2s linear;
-
-        &:hover {
-            background: lighten($color: #393e46, $amount: 10);
-        }
-    }
 </style>

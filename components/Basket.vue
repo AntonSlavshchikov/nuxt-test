@@ -94,28 +94,6 @@ methods:{
   box-shadow: 2px 2px 4px gray;
 }
 
-.basket__btn{
-  height: 30px;
-  border: none;
-  background: #393E46;
-  color: #fff;
-  padding: 8px;
-  font-size: 16px;
-  font-weight: 700;
-  text-transform: uppercase;
-  cursor: pointer;
-  border-radius: 5px;
-
-  text-decoration: none;
-
-  transition: all .2s linear;
-
-  &:hover{
-    background: lighten($color: #393E46, $amount: 10);
-  }
-}
-
-
 .backet__empty{
   min-height: 100%;
   width: 100%;
